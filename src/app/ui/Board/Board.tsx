@@ -12,12 +12,11 @@ interface Props {
 }
 
 export const ColumnBoard: FC<Props> = ({ todos, boardId }) => {
-  const [winReady, setWinReady] = useState(false);
-  const [todosToShow, setTodosToShow] = useState<Itodo[]>(todos);
-
+  const [todosToShow, setTodosToShow] = useState<Itodo[]>([]);
+  
   useEffect(() => {
-    setWinReady(true);
-  }, []);
+    setTodosToShow(todos)
+  }, [todos])
 
   const onDragEnd = async (result: any) => {
     const { destination } = result;
@@ -58,33 +57,29 @@ export const ColumnBoard: FC<Props> = ({ todos, boardId }) => {
   };
 
   return (
-    <>
-      {winReady && (
-        <DragDropContext onDragEnd={onDragEnd}>
-          <div className="grid grid-cols-3 gap-20 mb-10">
-            <Column
-              columnTitle={`Todo`}
-              todos={todosToShow}
-              status={Status.Pending}
-              boardId={boardId}
-            />
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="grid grid-cols-3 gap-20 mb-10">
+        <Column
+          columnTitle={`Todo`}
+          todos={todosToShow}
+          status={Status.Pending}
+          boardId={boardId}
+        />
 
-            <Column
-              columnTitle={`In Progress`}
-              todos={todosToShow}
-              status={Status.Active}
-              boardId={boardId}
-            />
+        <Column
+          columnTitle={`In Progress`}
+          todos={todosToShow}
+          status={Status.Active}
+          boardId={boardId}
+        />
 
-            <Column
-              columnTitle={`Done`}
-              todos={todosToShow}
-              status={Status.Closed}
-              boardId={boardId}
-            />
-          </div>
-        </DragDropContext>
-      )}
-    </>
-  );
+        <Column
+          columnTitle={`Done`}
+          todos={todosToShow}
+          status={Status.Closed}
+          boardId={boardId}
+        />
+      </div>
+    </DragDropContext>    
+  )
 };
