@@ -13,6 +13,7 @@ export const Form: FC<Props> = ({ closeModal, boardId, todoId }) => {
   const handleSubmit = async (e: FormEvent) => {
     try {
       e.preventDefault();
+      e.stopPropagation();
 
       const form = e.target as HTMLFormElement;
       const formData = new FormData(form);
