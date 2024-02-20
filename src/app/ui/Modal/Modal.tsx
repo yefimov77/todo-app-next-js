@@ -8,7 +8,7 @@ import { todo } from 'node:test';
 interface Props {
   closeModal: () => void,
   boardId?: string,
-  todoId?: Key,
+  todoId?: string,
 }
 
 export const Modal:FC<Props> =({closeModal, boardId, todoId}) => {
