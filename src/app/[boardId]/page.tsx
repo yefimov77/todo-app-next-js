@@ -7,6 +7,6 @@ export default async function Board({ params} : { params:{ boardId : string } })
   console.log(todos);
 
   return (
-    <ColumnBoard boardId={boardId} todos={todos} />
+    <ColumnBoard boardId={boardId} todos={todos!} />
   )
 };
