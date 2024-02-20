@@ -1,0 +1,28 @@
+.height {
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.heading {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.addBtn {
+  font-size: 15px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 150px;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  font-weight: bold;
+  background-color: darkgray;
+}
+
+.addBtn:hover {
+  background-color: rgba(0,0,0, 0.1);
+  color: gray;
+}
