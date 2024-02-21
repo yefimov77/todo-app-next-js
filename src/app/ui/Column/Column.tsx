@@ -8,18 +8,20 @@ import { Modal } from "../Modal/Modal";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 
 
+
 interface Props {
   columnTitle: string,
   todos: Itodo[],
   status: Status,
   boardId?: string,
+  isLoading: boolean,
+  dragTodoId: string,
 }
 
-export const Column:FC<Props> = ({columnTitle, todos, status, boardId}) => {
+export const Column:FC<Props> = ({columnTitle, todos, status, boardId, isLoading, dragTodoId}) => {
   const todosToRender: Itodo[] = getTodosToRender(todos,status );
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-
+  
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   }
@@ -50,11 +52,13 @@ export const Column:FC<Props> = ({columnTitle, todos, status, boardId}) => {
                       <div 
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        ref={provided.innerRef} 
+                        ref={provided.innerRef}
                       >
                         <Todo 
                           todo={todo}
                           key={todo._id}
+                          isLoading={isLoading}
+                          dragTodoId={dragTodoId}
                         />
                       </div>
                     )}

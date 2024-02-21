@@ -6,14 +6,19 @@ import { MdDeleteForever } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { deleteTodo } from "@/app/lib/actions";
 import { Modal } from "../Modal/Modal";
+import cn from "classnames";
 
 interface Props {
   todo: Itodo,
+  isLoading: boolean,
+  dragTodoId: string,
 }
 
-export const Todo:FC<Props> = ({todo}) => {
+export const Todo:FC<Props> = ({todo, isLoading, dragTodoId}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const id = todo._id;
+
+  const isItemDragged = (id === dragTodoId) && isLoading;
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -21,8 +26,9 @@ export const Todo:FC<Props> = ({todo}) => {
 
   return (
     <li
-      className=" bg-slate-300 p-5 rounded-lg"
- 
+      className={cn('p-5 rounded-lg bg-slate-300',{
+        ' bg-gray-600': isItemDragged, 
+      })}
     >
       <h3
         className={`text-black bold mb-3 ${styles.title}`}
