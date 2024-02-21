@@ -27,7 +27,7 @@ export const Todo:FC<Props> = ({todo, isLoading, dragTodoId}) => {
   return (
     <li
       className={cn('p-5 rounded-lg bg-slate-300',{
-        ' bg-gray-600': isItemDragged, 
+        ' bg-gray-800': isItemDragged, 
       })}
     >
       <h3
