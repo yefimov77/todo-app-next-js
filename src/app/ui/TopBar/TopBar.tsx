@@ -1,12 +1,13 @@
 'use client'
+
 import { LoadButton } from "../Button/LoadButton";
 import { useState } from "react";
 import { Search } from "../Search/Search";
 
-
 export default function TopBar(){
   const [boardId, setBoardId] = useState('');
   const [searchValue, setSearchValue] = useState('');
+
   const handleReset = () => {
     setSearchValue('');
   }

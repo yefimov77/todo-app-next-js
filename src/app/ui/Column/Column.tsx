@@ -1,4 +1,5 @@
 'use client'
+
 import { Itodo, Status } from "@/app/lib/definitions";
 import React, { FC, useState } from "react";
 import styles from './column.module.css';
@@ -6,8 +7,6 @@ import { getTodosToRender } from "./helper";
 import { Todo } from "../Todo/Todo";
 import { Modal } from "../Modal/Modal";
 import { Draggable, Droppable } from "react-beautiful-dnd";
-
-
 
 interface Props {
   columnTitle: string,
@@ -43,9 +42,7 @@ export const Column:FC<Props> = ({columnTitle, todos, status, boardId, isLoading
             <ul
               className="p-8 flex flex-col gap-5"
             >
-              {todosToRender.map((todo, index) => {
-                const dragId = crypto.randomUUID();
-    
+              {todosToRender.map((todo, index) => { 
                 return (
                   <Draggable draggableId={todo._id}  key={todo._id} index={index}>
                     {(provided) => (
@@ -78,9 +75,7 @@ export const Column:FC<Props> = ({columnTitle, todos, status, boardId, isLoading
             {isModalOpen && <Modal closeModal={toggleModal} boardId={boardId} />} 
           </div>
         )}
-        
       </Droppable>
-      
     </div>
   );
 }

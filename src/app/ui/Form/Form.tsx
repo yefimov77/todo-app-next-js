@@ -1,6 +1,7 @@
 'use client'
+
 import { createTodo, updateTodo } from "@/app/lib/actions";
-import { FC, FormEvent, Key, useState } from "react";
+import { FC, FormEvent } from "react";
 
 interface Props {
   closeModal:() => void,

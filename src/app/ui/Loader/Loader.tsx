@@ -1,5 +1,6 @@
 'use client'
-import { useState, CSSProperties, FC, useEffect } from "react";
+
+import { useState, CSSProperties, FC } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const override: CSSProperties = {
@@ -9,10 +10,9 @@ const override: CSSProperties = {
 };
 
 export const Loader:FC = () => {
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("blue");
+  const [loading, setLoading] = useState(true);
+  const [color, setColor] = useState("blue");
 
- 
   return (
     <ClipLoader
       color={color}

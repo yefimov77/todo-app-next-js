@@ -1,5 +1,3 @@
-import TopBar from "./ui/TopBar/TopBar";
-
 export default async function Home() {
   return (
     <main className="flex max-h-screen flex-col gap-20 ">

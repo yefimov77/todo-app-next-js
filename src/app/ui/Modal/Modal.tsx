@@ -1,4 +1,5 @@
 'use client'
+
 import styles from './modal.module.css';
 import { Form } from '../Form/Form';
 import { CloseBtn } from '../CloseBtn/CloseBtn';
